@@ -7,4 +7,4 @@ A todo app that will include a pomodoro timer :tomato: :alarm_clock:
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, NodeJS, MongoDB, Express, CRUD, Rest
+**Tech used:** HTML, CSS, JavaScript, NodeJS, MongoDB (Mongoose), Express, CRUD, Rest
