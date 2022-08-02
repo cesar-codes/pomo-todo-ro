@@ -18,11 +18,15 @@ app.listen(3000, () => console.log("Server is up and running!"));})
 
 app.set("view engine", "ejs")
 
+
+
 app.get('/', (req, res) =>{
-    todoTask.find({}, (err, task) =>{
+    TodoTask.find({}, (err, tasks) =>{
         res.render('todo.ejs', { todoTasks: tasks});
     })
 })
+
+
 
 app.post('/', async (req, res) => {
     const todoTask = new TodoTask({
