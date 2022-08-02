@@ -45,8 +45,8 @@ app
 .route('/edit/:id')
 .get((req, res)=> {
     const id = req.params.id;
-    TodoTask.find({}, (err, taks) => {
-        res.render('todoEdit.ejs', {TodoTasks: tasks, idTask: id});
+    TodoTask.find({}, (err, tasks) => {
+        res.render('todoEdit.ejs', {todoTasks: tasks, idTask: id});
     });
 })
 .post((req, res) => {
@@ -56,3 +56,13 @@ app
         res.redirect('/');
     });
 });
+
+//DELETE
+app.route("/remove/:id").get((req, res) => {
+    const id = req.params.id;
+    TodoTask.findByIdAndRemove(id, err => {
+        if (err) return res.send(500, err);
+        res.redirect("/");
+    });
+});
+    
