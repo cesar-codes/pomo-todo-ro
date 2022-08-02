@@ -19,7 +19,7 @@ app.listen(3000, () => console.log("Server is up and running!"));})
 app.set("view engine", "ejs")
 
 
-
+// GET
 app.get('/', (req, res) =>{
     TodoTask.find({}, (err, tasks) =>{
         res.render('todo.ejs', { todoTasks: tasks});
@@ -40,4 +40,19 @@ app.post('/', async (req, res) => {
     }
 });
 
-
+//UPDATE
+app
+.route('/edit/:id')
+.get((req, res)=> {
+    const id = req.params.id;
+    TodoTask.find({}, (err, taks) => {
+        res.render('todoEdit.ejs', {TodoTasks: tasks, idTask: id});
+    });
+})
+.post((req, res) => {
+    const id = req.params.id;
+    TodoTask.findByIdAndUpdate(id, { content: req.body.content }, err => {
+        if (err) return res.send(500, err);
+        res.redirect('/');
+    });
+});
