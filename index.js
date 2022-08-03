@@ -22,7 +22,6 @@ app.listen(process.env.PORT || PORT, ()=>{
 })
 })
 
-
 // mongoose
 // .connect(process.env.MONGODB_URI, {
 // useNewUrlParser: true,
