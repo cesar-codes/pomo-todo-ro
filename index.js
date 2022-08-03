@@ -13,25 +13,25 @@ app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 //connection to db
-//mongoose.set("useFindAndModify", false);
-// mongoose.connect(process.env.DB_CONNECT).then(()=>{console.log('Connected to DB!');
-// // app.listen(3000, () => console.log("Server is up and running!"));})
+// mongoose.set("useFindAndModify", false);
+mongoose.connect(process.env.MONGODB_URI).then(()=>{console.log('Connected to DB!');
+// app.listen(3000, () => console.log("Server is up and running!"));})
 
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server running on port ${PORT}`)
 })
-//})
-
-
-mongoose
-.connect(process.env.MONGODB_URI, {
-useNewUrlParser: true,
-//useCreateIndex: true,
-useUnifiedTopology: true,
-//useFindAndModify: false,
 })
-.then(() => console.log("MongoDB connected!"))
-.catch(err => console.log(err))
+
+
+// mongoose
+// .connect(process.env.MONGODB_URI, {
+// useNewUrlParser: true,
+// //useCreateIndex: true,
+// useUnifiedTopology: true,
+// //useFindAndModify: false,
+// })
+// .then(() => console.log("MongoDB connected!"))
+// .catch(err => console.log(err))
 
 
 
