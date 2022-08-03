@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').config()
 const mongoose = require("mongoose");
 const PORT = 3000
 //models
 const TodoTask = require("./models/TodoTask")
 
-dotenv.config();
+//dotenv.config();
 
 app.use("/static", express.static("public"));
 
